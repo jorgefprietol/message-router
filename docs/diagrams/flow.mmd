@@ -1,0 +1,13 @@
+flowchart TD
+    Start["Recibir submit"] --> Validate["Validar tenant, canal y tamaño"]
+    Validate --> Duplicate{"¿Identidad de origen existente?"}
+    Duplicate -->|Sí| Compare{"¿Huella idéntica?"}
+    Compare -->|Sí| Previous["Devolver mensaje existente"]
+    Compare -->|No| Reject["Rechazar reuso del identificador"]
+    Duplicate -->|No| Classify["Clasificar asunto y cuerpo"]
+    Classify --> SLA["Aplicar prioridad y vencimiento UTC"]
+    SLA --> Confidence{"¿Requiere revisión?"}
+    Confidence -->|Sí| Override["Corregir con operador y motivo"]
+    Confidence -->|No| Queue["Guardar en cola operativa"]
+    Override --> Queue
+    Queue --> Close["Cerrar y registrar cumplimiento de SLA"]

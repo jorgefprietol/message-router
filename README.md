@@ -2,6 +2,12 @@
 
 Servicio de clasificación de correos y tickets con colas operativas, prioridades y vencimientos de SLA. Conserva el identificador del sistema de origen, evita duplicados y permite corregir una clasificación sin reiniciar el reloj de atención.
 
+## Diseño y tecnologías
+
+Python 3.10+, SQLite, reglas de clasificación y fechas UTC. Ollama es opcional; se incluyen workflow n8n, Docker y pruebas automatizadas.
+
+[Diagrama de arquitectura](docs/architecture.md) · [Diagrama del flujo](docs/flow.md) · [Tecnologías y alcance](docs/technologies.md)
+
 ## Ejecutar
 
 Requiere Python 3.10 o posterior. El modo local utiliza la biblioteca estándar y SQLite.

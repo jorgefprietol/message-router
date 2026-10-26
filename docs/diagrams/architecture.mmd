@@ -1,0 +1,18 @@
+flowchart TB
+    Client["CLI o consola web"] --> API["API con token e idempotencia"]
+    subgraph Local["Servicio local implementado"]
+        API --> Dedupe["Identidad y huella del mensaje"]
+        Dedupe --> Classifier["Clasificador local"]
+        Classifier --> Policy["Prioridad, cola y SLA"]
+        Policy --> DB["SQLite y auditoría"]
+        DB --> Review["Corrección y cierre explícitos"]
+        Review --> DB
+    end
+    subgraph Optional["Componentes opcionales por configurar"]
+        N8N["Workflow n8n incluido"]
+        Model["Clasificador Ollama"]
+    end
+    N8N -.-> API
+    Classifier -.-> Model
+    Model -.-> Policy
+    External["Correo y CRM por conectar"] -.-> N8N
