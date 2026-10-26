@@ -2,10 +2,6 @@
 
 Servicio de clasificación de correos y tickets con colas operativas, prioridades y vencimientos de SLA. Conserva el identificador del sistema de origen, evita duplicados y permite corregir una clasificación sin reiniciar el reloj de atención.
 
-## Contexto y confidencialidad
-
-Este caso de uso forma parte de mi experiencia en soluciones implementadas en producción durante trabajos de consultoría. La versión pública es una implementación independiente con datos sintéticos que permite revisar la arquitectura, los flujos y los controles. Por confidencialidad, no se incluyen la identidad del cliente, su código ni sus registros operativos.
-
 ## Diseño y tecnologías
 
 Python 3.10+, SQLite, reglas de clasificación y fechas UTC. Ollama es opcional; se incluyen workflow n8n, Docker y pruebas automatizadas.
