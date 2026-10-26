@@ -1,0 +1,1 @@
+{"action":"submit","tenant":"demo","external_id":"MAIL-1001","channel":"email","sender":"operations@example.test","subject":"Pago duplicado en factura","body":"La factura FAC-1042 aparece cobrada dos veces. Solicito revisión."}
